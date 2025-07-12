@@ -4,6 +4,7 @@ import { Button } from '../Components/Button';
 import { DropDown } from '../Components/DropDown';
 import { Heading } from '../Components/Heading';
 import { InputBox } from '../Components/InpuBox';
+import axios from 'axios';
 
  export const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -18,28 +19,38 @@ import { InputBox } from '../Components/InpuBox';
          <div className=" bg-[#000000] w-80 text-center text-white p-2 h-max px-4 border-[3px] border-[#03c447]
           backdrop:blur-3xl rounded-4xl">
         <Heading label={"Sign Up"} />
-        <InputBox onChange={e=> {
+        <InputBox onChange={(e : React.ChangeEvent<HTMLInputElement>)=> {
           setUsername(e.target.value)
         }}
          label={"Username"} placeholder={"Enter your username"}></InputBox>
-        <InputBox onChange={e=> {
+        <InputBox onChange={(e : React.ChangeEvent<HTMLInputElement>)=> {
           setEmail(e.target.value)
         }}
          label={"Email"} placeholder={"Enter your email"}></InputBox>
-        <InputBox onChange={e=> {
+        <InputBox onChange={(e : React.ChangeEvent<HTMLInputElement>)=> {
           setPassword(e.target.value)
         }}
          label={"Password"} placeholder={"Enter your passowrd"}></InputBox>
         <DropDown role={role} setRole={setRole}></DropDown>
          {role === "admin" && (
             <InputBox
-              onChange={(e) => setSecretKey(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSecretKey(e.target.value)}
               label={"Secret Key"}
               placeholder={"Enter Admin Secret Key"}
             />
+            
           )}
 
-        <Button label={"Register"}></Button>
+        <Button label={"Register"}  onClick={async ()=> {
+           const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
+            username,
+            email,
+            password,
+            role
+           })
+            localStorage.setItem("token", response.data.token)
+        }}
+        ></Button>
         
         <BottomWarning label={"Already have an account?"} to={"/signin"} buttonText={"Sign In"} ></BottomWarning>
          </div>
