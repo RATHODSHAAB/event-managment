@@ -46,7 +46,8 @@ import axios from 'axios';
             username,
             email,
             password,
-            role
+            role,
+            secretKey
            })
             localStorage.setItem("token", response.data.token)
         }}
