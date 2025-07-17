@@ -16,6 +16,15 @@ export const Dashboard = () => {
       ></EventCard>
       </div>
 
+    
+
+
+        {/* <div className="grid grid-cols-6 gap-6 p-16 bg-[#000000] min-h-screen">
+            <div className="col-span-3 row-span-2 bg-white/30  rounded-3xl p-6 shadow-xl backdrop:blur-lg border-white/20">1</div>
+            <div className="col-span-3 row-span-1 bg-white/30 rounded-3xl p-6 shadow-xl border-white/20 backdrop:blur-lg">2</div>
+            <div className="col-span-3 row-span-4 bg-white/30 rounded-3xl p-6 border-white/20 shadow-xl backdrop:blur-lg">3</div>
+            <div className="col-span-3 row-span-3 bg-white/30 border-white/20 rounded-3xl p-6 shadow-xl backdrop:blur-lg">4</div>
+        </div>  */}
     </div>
   )
 }

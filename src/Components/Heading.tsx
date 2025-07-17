@@ -1,5 +1,5 @@
 export  function Heading({label}) {
-return <div className="text-4xl  font-bold pt-6">
+return <div className="text-4xl  font-bold pt-5">
     {label}
 </div>
 }
