@@ -1,19 +1,37 @@
+import { useEffect, useState } from "react"
 import { EventCard } from "../Components/EventCard"
 import { Navbar } from '../Components/Navbar'
+import axios from "axios"
 
 export const Dashboard = () => {
+
+  const [events, setEvents] = useState([]);
+
+  useEffect(()=>{
+  
+    const fetchEvent = async () => {
+   try {
+    const res = await axios.get("http://localhost:5000/api/v1/event/get-event");
+    setEvents(res.data);
+      console.log(res.data);
+  }
+  catch (error) {
+    console.error("Error while Fetching data",error)
+  }
+}
+  fetchEvent();
+  },[])
+
+
   return (
     <div className="bg-[#000000] ">
       <Navbar></Navbar>
         
         {/* Data is currently hardcoded i will do call from backend */}
      <div className="min-h-screen w-[100%] bg-[#000000]  flex flex-wrap  justify-around gap-6 px-6 mt-6">
-      <EventCard event={"Hackathon"} description={"Only for the AIDS section students"} 
-      date={"10th of july"} venue={"seminar hall"}
-      ></EventCard>
-      <EventCard event={"Hackathon"} description={"Only for the AIDS section students"} 
-      date={"10th of july"} venue={"seminar hall"}
-      ></EventCard>
+     {events.map((event) => (
+  <EventCard  event={event} />
+))}
       </div>
 
     

@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Dashboard />}></Route>
+        <Route path="" element={<Dashboard />}></Route>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/create-event" element={<EventForm />} />

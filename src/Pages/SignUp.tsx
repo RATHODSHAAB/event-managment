@@ -50,8 +50,7 @@ import {  faUser , faKey , faEnvelope } from '@fortawesome/free-solid-svg-icons'
             <InputBox
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSecretKey(e.target.value)}
               label={"Secret Key"}
-              placeholder={"Enter Admin Secret Key"}
-            />
+              placeholder={"Enter Admin Secret Key"} icon={undefined}            />
             
           )}
 
@@ -74,8 +73,8 @@ import {  faUser , faKey , faEnvelope } from '@fortawesome/free-solid-svg-icons'
       // Set API endpoint based on role
       const url =
         role === "admin"
-          ? "http://localhost:3000/api/v1/admin/signup"
-          : "http://localhost:3000/api/v1/user/signup";
+          ? "http://localhost:5000/api/v1/admin/signup"
+          : "http://localhost:5000/api/v1/user/signup";
 
       // Prepare payload based on role
       const payload =
@@ -89,6 +88,8 @@ import {  faUser , faKey , faEnvelope } from '@fortawesome/free-solid-svg-icons'
       // Save token in localStorage
       localStorage.setItem("token", response.data.token);
       if(role === 'admin' ){
+        navigate('/')
+      }else{
         navigate('/')
       }
 

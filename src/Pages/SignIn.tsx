@@ -48,8 +48,8 @@ export const SignIn = () => {
       // Set API endpoint based on role
       const url =
         role === "admin"
-          ? "http://localhost:3000/api/v1/admin/signin"
-          : "http://localhost:3000/api/v1/user/signin";
+          ? "http://localhost:5000/api/v1/admin/signin"
+          : "http://localhost:5000/api/v1/user/signin";
 
       // Prepare payload based on role
       const payload =
@@ -63,6 +63,8 @@ export const SignIn = () => {
       // Save token in localStorage
       localStorage.setItem("token", response.data.token);
       if(role === 'admin' ){
+        navigate('/')
+      }else{
         navigate('/')
       }
 
