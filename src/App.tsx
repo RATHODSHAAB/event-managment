@@ -5,6 +5,7 @@ import { SignUp } from "./Pages/SignUp";
 import { SignIn } from "./Pages/SignIn";
 import { Dashboard } from "./Pages/DahshBoard";
 import { EventForm } from "./Pages/EventForm";
+import { Landing } from "./Pages/Landing";
 
 
 
@@ -13,6 +14,7 @@ function App() {
     <>
       <Routes>
         <Route path="" element={<Dashboard />}></Route>
+        <Route path="/landing" element={<Landing />}></Route>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/create-event" element={<EventForm />} />

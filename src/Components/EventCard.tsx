@@ -17,14 +17,24 @@ export function EventCard({ event }) {
 
     return (
        <>
-        <div className=" bg-[#000000] w-80 text-center text-white p-2 h-max px-4 border-[3px] border-[#03c447]
-          backdrop:blur-3xl rounded-xl">
-            <Heading label={event.title} ></Heading>
-            <EventSubHeading label={event.description} ></EventSubHeading>
-            <EventSubHeading label={event.venue} ></EventSubHeading>
-            <EventSubHeading label={formatDate(event.date)} ></EventSubHeading>
-            <Button label={"More Info"} ></Button>
-          </div>
+        <div className="w-80 bg-black/60 backdrop-blur-xl border border-white/10 
+                rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.02] 
+                transition-all duration-300 text-white p-6 space-y-3">
+
+  <Heading label={event.title}  />
+
+  <EventSubHeading label={event.description}  />
+  
+  <EventSubHeading label={event.venue}  />
+  
+  <EventSubHeading label={formatDate(event.date)}  />
+
+  <Button label={"More Info"}  />
+
+  
+
+</div>
+
        </>
         
     )

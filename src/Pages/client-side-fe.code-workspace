@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../server"
+		}
+	],
+	"settings": {
+		"editor.tokenColorCustomizations": {
+  "textMateRules": [
+    {
+      "scope": "comment",
+      "settings": {
+        "fontStyle": "bold italic",       // Strong emphasis
+        "foreground": "#B388FF"           // Bright neon mint green
+      }
+    }
+  ]
+}
+	}
+}
